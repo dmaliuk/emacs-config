@@ -86,6 +86,8 @@
 ;; company: shows hints as you type from various sources
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+;; leave only relevant back-end: still not sure what each means, but files is for path completion
+(setq company-backends '(company-files company-c-headers company-clang company-ropemacs company-dabbrev-code company-gtags))
 
 ;; company-c-headers
 (add-to-list 'company-backends 'company-c-headers)

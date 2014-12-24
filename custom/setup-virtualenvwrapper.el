@@ -2,6 +2,7 @@
 (venv-initialize-eshell)
 
 ;; venv locations (can be a list)
-(setq venv-location "/Users/dmaliuk/fall14/python/lasagne_facial_tut")
+(setq venv-location '("/Users/dmaliuk/fall14/python/lasagne_facial_tut/lasagne.ve/"
+                      "/Users/dmaliuk/fall14/python/theano-tutorial/theano-venv/"))
 
-;;(provide 'setup-virtualenvwrapper)
+(provide 'setup-virtualenvwrapper)
