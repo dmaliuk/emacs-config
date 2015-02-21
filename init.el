@@ -2,9 +2,9 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
-	     '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 (package-initialize)
 
 (elpy-enable)
@@ -65,6 +65,7 @@
 (require 'setup-convenience)
 (require 'setup-projectile)
 (require 'setup-virtualenvwrapper)
+(require 'setup-ipython)
 
 ;; proprly handle environment vars
 (require 'exec-path-from-shell)
@@ -113,11 +114,11 @@
 ;; enable clean-aindent-mode
 (require 'clean-aindent-mode)
 (add-hook 'prog-mode-hook 'clean-aindent-mode)
- 
+
 ;; undo-tree mode
 (require 'undo-tree)
 (global-undo-tree-mode)
- 
+
 ;; expand-region
 (require 'expand-region)
 (global-set-key (kbd "M-m") 'er/expand-region)
@@ -129,6 +130,9 @@
 ;; enable volatile-highlights mode
 (require 'volatile-highlights)
 (volatile-highlights-mode t)
+
+;; activate ess
+(require 'ess-site)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; python related stuff
@@ -194,6 +198,12 @@
 ;; set appearance of a tab that is represented by 4 spaces
 (setq-default tab-width 4)
 
+;; add CUDA extention to c-mode alist
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c-mode))
+
+;; add cmake files to cmak
+(add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode) '("\\.cmake\\'" . cmake-mode))
+
 ;; MAC: set META and SUPER
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
@@ -214,6 +224,9 @@
 
 ;; turn beep off
 (setq visible-bell nil)
+
+;; turn off toolbar
+(tool-bar-mode 0)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; workgroups2
