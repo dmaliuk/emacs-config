@@ -1,0 +1,7 @@
+# ignore all
+/*
+
+# except
+!/custom/*.el
+!*.el
+!.gitignore
