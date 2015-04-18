@@ -38,7 +38,8 @@
     sr-speedbar
     workgroups2
     elpy
-    virtualenvwrapper))
+    virtualenvwrapper
+    markdown-mode))
 
 (defun install-packages ()
   "Install all required packages."
@@ -182,6 +183,12 @@
 ;; custom settings: allow moving windows Super-shift-up/down/left/right
 (require 'buffer-move)
 
+;; markdown mode
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; change default c/c++ indentation style
