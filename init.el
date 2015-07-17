@@ -80,10 +80,14 @@
 (require 'sr-speedbar)
 
 ;; function-args
-(require 'function-args)
-(fa-config-default)
-(define-key c-mode-map  [(tab)] 'moo-complete)
-(define-key c++-mode-map  [(tab)] 'moo-complete)
+;;(require 'function-args)
+;;(fa-config-default)
+;;(define-key c-mode-map  [(tab)] 'moo-complete)
+;;(define-key c++-mode-map  [(tab)] 'moo-complete)
+
+;; map indent as TAB
+(define-key c-mode-map  [(tab)] 'c-indent-command)
+(define-key c++-mode-map  [(tab)] 'c-indent-command)
 
 ;; company: shows hints as you type from various sources
 (require 'company)
@@ -103,6 +107,10 @@
 (global-set-key (kbd "C-c C-k") 'windmove-down)
 (global-set-key (kbd "C-c C-l") 'windmove-up)
 (global-set-key (kbd "C-c C-;") 'windmove-right)
+
+;; convenience mappings
+(global-set-key (kbd "C--") 'previous-buffer)
+(global-set-key (kbd "C-=") 'next-buffer)
 
 ;; enable gdb mode
 (setq gdb-many-windows t)
@@ -190,6 +198,14 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; protobuf-mode
+(require 'protobuf-mode)
+(add-to-list 'auto-mode-alist '("\\.prototxt\\'" . protobuf-mode))
+(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
+
+;; ispc code c-mode
+(add-to-list 'auto-mode-alist '("\\.ispc\\'" . c-mode))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; change default c/c++ indentation style
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -206,7 +222,7 @@
 (setq-default tab-width 4)
 
 ;; add CUDA extention to c-mode alist
-(add-to-list 'auto-mode-alist '("\\.cu\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 
 ;; add cmake files to cmak
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode) '("\\.cmake\\'" . cmake-mode))
