@@ -121,8 +121,8 @@
 (yas-global-mode 1)
 
 ;; enable clean-aindent-mode
-(require 'clean-aindent-mode)
-(add-hook 'prog-mode-hook 'clean-aindent-mode)
+;;(require 'clean-aindent-mode)
+;;(add-hook 'prog-mode-hook 'clean-aindent-mode)
 
 ;; undo-tree mode
 (require 'undo-tree)
@@ -209,17 +209,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; change default c/c++ indentation style
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq c-default-style "linux")
-(setq c-basic-offset 4)
-(global-set-key (kbd "RET") 'newline-and-indent)  ; automatically indent when press RET
-;; activate whitespace-mode to view all whitespace characters
-(global-set-key (kbd "C-c w") 'whitespace-mode)
-;; show unncessary whitespace that can mess up your diff
-;;(add-hook 'prog-mode-hook (lambda () (interactive) (setq show-trailing-whitespace 1)))
-;; use space to indent by default
-(setq-default indent-tabs-mode nil)
-;; set appearance of a tab that is represented by 4 spaces
-(setq-default tab-width 4)
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
 ;; add CUDA extention to c-mode alist
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
@@ -235,8 +227,8 @@
 
 ;; set default font and frame size
 (set-frame-font "Menlo 15" nil t)
-(add-to-list 'default-frame-alist '(width . 100))
-(add-to-list 'default-frame-alist '(height . 50))
+(add-to-list 'default-frame-alist '(width . 90))
+(add-to-list 'default-frame-alist '(height . 40))
 
 ;; remap buffer list to ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
