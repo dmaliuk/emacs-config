@@ -67,6 +67,7 @@
 (require 'setup-projectile)
 (require 'setup-virtualenvwrapper)
 (require 'setup-ipython)
+(require 'setup-shell)
 
 ;; proprly handle environment vars
 (require 'exec-path-from-shell)
@@ -242,6 +243,10 @@
 
 ;; turn off toolbar
 (tool-bar-mode 0)
+
+;; setup sending lines to shell buffers
+(require 'essh)
+(global-set-key (kbd "C-M-j") 'pipe-line-to-shell)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; workgroups2

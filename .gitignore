@@ -2,6 +2,6 @@
 /*
 
 # except
-!/custom/*.el
+!/custom
 !*.el
 !.gitignore
