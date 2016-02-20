@@ -39,7 +39,8 @@
     workgroups2
     elpy
     virtualenvwrapper
-    markdown-mode))
+    markdown-mode
+    slime))
 
 (defun install-packages ()
   "Install all required packages."
@@ -143,6 +144,10 @@
 
 ;; activate ess
 (require 'ess-site)
+
+;; set-up lisp env
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(setq slime-contribs '(slime-fancy))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; python related stuff
@@ -274,7 +279,7 @@
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults)))
  '(elpy-rpc-backend "jedi")
- '(elpy-rpc-python-command "python3")
+ '(elpy-rpc-python-command "python")
  '(fci-rule-color "#eee8d5")
  '(foreground-color "#839496")
  '(vc-annotate-background nil)

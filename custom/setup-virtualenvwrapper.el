@@ -6,6 +6,7 @@
                       "/Users/dmaliuk/fall14/python/virtualenvs/quantecon/"
                       "/Users/dmaliuk/fall14/python/lasagne_facial_tut/lasagne.ve/"
                       "/Users/dmaliuk/fall14/python/theano-tutorial/theano-venv/"
-                      "/Users/dmaliuk/fall14/python/virtualenvs/apollo-caffe/"))
+                      "/Users/dmaliuk/fall14/python/virtualenvs/apollo-caffe/"
+		      "/Users/dmaliuk/fall14/python/virtualenvs/tensorflow/"))
 
 (provide 'setup-virtualenvwrapper)
