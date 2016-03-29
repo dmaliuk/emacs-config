@@ -51,6 +51,8 @@
 (global-set-key (kbd "C-'") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-;") 'helm-find-files)
+(global-set-key (kbd "C-=") 'switch-to-next-buffer)
+(global-set-key (kbd "C--") 'switch-to-prev-buffer)
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-c h o") 'helm-occur)
 (global-set-key (kbd "C-c h g") 'helm-do-grep)

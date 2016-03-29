@@ -8,9 +8,11 @@
 (package-initialize)
 
 (elpy-enable)
-(elpy-use-ipython)
+;;(elpy-use-ipython)
 
 (setq inhibit-startup-message t)
+(menu-bar-mode)
+(tool-bar-mode)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -33,7 +35,7 @@
     helm-projectile
     expand-region
     undo-tree
-    ack-and-a-half
+    ;;ack-and-a-half
     volatile-highlights
     sr-speedbar
     workgroups2
@@ -143,7 +145,7 @@
 (volatile-highlights-mode t)
 
 ;; activate ess
-(require 'ess-site)
+;;(require 'ess-site)
 
 ;; set-up lisp env
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
@@ -152,8 +154,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; python related stuff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'magit)
-(global-set-key "\C-xg" 'magit-status)
+;;(require 'magit)
+;;(global-set-key "\C-xg" 'magit-status)
 
 ;;(require 'auto-complete)
 ;;(require 'autopair)
@@ -205,9 +207,9 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; protobuf-mode
-(require 'protobuf-mode)
-(add-to-list 'auto-mode-alist '("\\.prototxt\\'" . protobuf-mode))
-(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
+;;(require 'protobuf-mode)
+;;(add-to-list 'auto-mode-alist '("\\.prototxt\\'" . protobuf-mode))
+;;(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
 ;; ispc code c-mode
 (add-to-list 'auto-mode-alist '("\\.ispc\\'" . c-mode))
@@ -232,7 +234,7 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; set default font and frame size
-(set-frame-font "Menlo 15" nil t)
+(set-frame-font "Menlo 10" nil t)
 (add-to-list 'default-frame-alist '(width . 90))
 (add-to-list 'default-frame-alist '(height . 40))
 
@@ -256,8 +258,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; workgroups2
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'workgroups2)
-(setq wg-session-file "~/.emacs.d/.emacs_workgroups")
+;;(require 'workgroups2)
+;;(setq wg-session-file "~/.emacs.d/.emacs_workgroups")
 
 (message "Ready to play!")
 (custom-set-variables
@@ -311,4 +313,4 @@
  ;; If there is more than one, they won't work right.
  )
 
-(workgroups-mode 1)
+;;(workgroups-mode 1)
