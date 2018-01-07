@@ -7,9 +7,6 @@
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 (package-initialize)
 
-(elpy-enable)
-;;(elpy-use-ipython)
-
 (setq inhibit-startup-message t)
 (menu-bar-mode)
 (tool-bar-mode)
@@ -42,6 +39,7 @@
     elpy
     virtualenvwrapper
     markdown-mode
+    exec-path-from-shell
     slime))
 
 (defun install-packages ()
@@ -55,6 +53,13 @@
 
 (install-packages)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; turn off rind bell
+(setq ring-bell-function 'ignore)
+
+(elpy-enable)
+;;(elpy-use-ipython)
+
 ;; this variables must be set before load helm-gtags
 ;; you can change to any prefix key of your choice
 (setq helm-gtags-prefix-key "\C-cg")
@@ -62,6 +67,7 @@
 (add-to-list 'load-path "~/.emacs.d/custom")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
+(require 'shell)
 (require 'setup-helm)
 (require 'setup-helm-gtags)
 ;; (require 'setup-ggtags)
@@ -234,9 +240,9 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; set default font and frame size
-(set-frame-font "Menlo 10" nil t)
-(add-to-list 'default-frame-alist '(width . 90))
-(add-to-list 'default-frame-alist '(height . 40))
+(set-frame-font "Menlo 14" nil t)
+(add-to-list 'default-frame-alist '(width . 160))
+(add-to-list 'default-frame-alist '(height . 60))
 
 ;; remap buffer list to ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -284,6 +290,9 @@
  '(elpy-rpc-python-command "python")
  '(fci-rule-color "#eee8d5")
  '(foreground-color "#839496")
+ '(package-selected-packages
+   (quote
+    (bazel-mode cmake-mode helm-ag color-theme-sanityinc-solarized solarized-theme ws-butler workgroups2 volatile-highlights virtualenvwrapper undo-tree sr-speedbar smartparens slime markdown-mode magit jedi helm-projectile helm-gtags ggtags function-args expand-region exec-path-from-shell elpy dtrt-indent clean-aindent-mode autopair)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
